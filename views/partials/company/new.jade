@@ -1,0 +1,88 @@
+h3 Add new company
+hr
+form.form.form-horizontal(name="companyNewForm")
+    .form-group
+        label.col-sm-3.control-label(for="name" ) Name
+        .col-sm-7
+            input.form-control(
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Input name"
+            ng-model="company.name"
+            required
+            )
+    .form-group
+        label.col-sm-3.control-label(for="inn" ) INN
+        .col-sm-7
+            input.form-control(
+            id="inn"
+            name="inn"
+            type="text"
+            placeholder="Input inn"
+            ng-model="company.inn"
+            required
+            )
+    .form-group
+        label.col-sm-3.control-label(for="website" ) Website
+        .col-sm-7
+            input.form-control(
+            id="website"
+            name="website"
+            type="text"
+            placeholder="Input website"
+            ng-model="company.site"
+            required
+            )
+    .form-group
+        label.col-sm-3.control-label(for="email" ) Email
+        .col-sm-7
+            input.form-control(
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Input email"
+            ng-model="company.email"
+            required
+            )
+    .form-group
+        label.col-sm-3.control-label(for="category") Category
+        .col-sm-7
+            select.form-control(
+            multiple
+            chosen
+            data-placeholder="select a category"
+            ng-model="company.category"
+            ng-options="item._id as item.name for item in categories"
+            )
+    h3 Filials
+    a.btn.btn-default(ng-click="addFilial()") Add
+    hr
+    .form-group(ng-repeat="filial in company.filials")
+        label.col-sm-1.control-label Address
+        .col-sm-4
+            input.form-control(
+            name="address[{{$index}}]"
+            type="text"
+            placeholder="Input address"
+            ng-model="filial.address"
+            required
+            )
+        label.col-sm-1.control-label Phone
+        .col-sm-4
+            input.form-control(
+            name="phone[{{$index}}]"
+            type="text"
+            placeholder="Input phone"
+            ng-model="filial.phone"
+            required
+            )
+        .col-sm-2
+            a.btn.btn-danger(ng-click="removeFilial($index)")
+                span.glyphicon.glyphicon-remove
+
+    hr
+    button.btn.btn-primary.col-sm-offset-3(
+    ng-click="save()"
+    ng-disabled="companyNewForm.$invalid"
+    ) Save

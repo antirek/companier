@@ -1,0 +1,18 @@
+h3 Add new сategory
+hr
+form.form.form-horizontal(name="categoryAddForm")
+    .form-group
+        label.col-sm-3.control-label(for="name" ) Name
+        .col-sm-7
+            input.form-control(
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Input name"
+            ng-model="category.name"
+            required
+            )
+    button.btn.btn-primary.col-sm-offset-3(
+    ng-click="save()"
+    ng-disabled="categoryAddForm.$invalid"
+    ) Save

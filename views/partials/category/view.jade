@@ -1,0 +1,22 @@
+h3 {{category.name}}
+hr
+form.form.form-horizontal(name="categoryViewForm")
+    .form-group
+        label.col-sm-3.control-label(for="name" ) Name
+        .col-sm-7
+            input.form-control(
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Input name"
+            ng-model="category.name"
+            ng-model-options="{ updateOn: 'blur' }"
+            required
+            )
+    button.btn.btn-primary.col-sm-offset-3(
+    ng-click="save()"
+    ng-disabled="categoryViewForm.$invalid"
+    ) Save
+    button.btn.btn-danger(
+    ng-click="delete()"
+    ) Delete

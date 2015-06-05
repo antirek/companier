@@ -1,0 +1,19 @@
+{
+  "name": "companier",
+  "version": "0.0.1",
+  "homepage": "https://github.com/antirek/companier",
+  "authors": [
+    "k666r <k666r6@github.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "bootstrap": "~3.3.4",
+    "angular-resource": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-chosen-localytics": "~1.0.7",
+    "chosen": "~1.4.2"
+  }
+}

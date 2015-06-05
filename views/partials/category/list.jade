@@ -1,0 +1,7 @@
+h3 Categories
+    a(ui-sref="category.new")
+        span.glyphicon.glyphicon-plus-sign
+hr
+.list-group
+    a.list-group-item(ng-repeat="category in categories" ui-sref="category.view({id:category._id})" ui-sref-active="active") {{category.name}}
+        i.glyphicon.glyphicon-chevron-right.pull-right

@@ -1,0 +1,7 @@
+h3 Companies
+    a(ui-sref="company.new")
+        span.glyphicon.glyphicon-plus-sign
+hr
+.list-group
+    a.list-group-item(ng-repeat="company in companies" ui-sref="company.view({id:company._id})" ui-sref-active="active") {{company.name}}
+        i.glyphicon.glyphicon-chevron-right.pull-right
