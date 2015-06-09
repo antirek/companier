@@ -5,7 +5,7 @@ angular.module 'companier'
   $stateProvider
   .state
       name: 'main'
-      url: '/'
+      url: '/'     
   .state
       name: 'category'
       url: '/category'
