@@ -46,6 +46,17 @@ form.form.form-horizontal(name="companyNewForm")
             required
             )
     .form-group
+        label.col-sm-3.control-label(for="description" ) Description
+        .col-sm-7
+            textarea.form-control(
+            id="description"
+            name="description"
+            type="description"
+            placeholder="Input description"
+            ng-model="company.description"
+            required
+            )
+    .form-group
         label.col-sm-3.control-label(for="category") Category
         .col-sm-7
             select.form-control(

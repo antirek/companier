@@ -1,23 +1,28 @@
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
 db = mongoose.createConnection 'mongodb://localhost/companier'
+
 category =
   name:
     type: String
     required: true
+
 company =
   name:
     type: String
-    require: true
+    required: true
   inn:
     type: String
-    require: true
+    required: true
   site:
     type: String
-    require: true
+    required: true
   email:
     type: String
-    require: true
+    required: true
+  description:
+    type: String
+    required: true
   filials: [
     address:
       type: String
@@ -27,7 +32,6 @@ company =
       required: true
   ]
   category: [String]
-
 
 module.exports =
   Company: db.model 'company', new Schema company
