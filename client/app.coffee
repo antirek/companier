@@ -3,4 +3,5 @@ angular.module 'companier', [
   'ngResource'
   'ui.router'
   'localytics.directives'
+  'angularFileUpload'
 ]

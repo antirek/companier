@@ -19,4 +19,5 @@ angular.module 'companier'
         phone: ''
     $scope.removeFilial = (index)->
       $scope.company.filials.splice index, 1
+
 ]

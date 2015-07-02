@@ -11,6 +11,7 @@ app.get '/', (req, res)->
 
 app.use '/bower_components', express.static "#{__dirname}/bower_components"
 app.use '/public', express.static "#{__dirname}/public"
+app.use '/uploads', express.static "#{__dirname}/uploads"
 
 app.get '/partials/:folder/:view', (req, res)->
   res.render "partials/#{req.params.folder}/#{req.params.view}"
@@ -18,4 +19,7 @@ app.get '/partials/:folder/:view', (req, res)->
 models = require './models'
 app.use '/company', mongooseRouter models.Company
 app.use '/category', mongooseRouter models.Category
+app.use '/', require './images'
+
+
 app.listen 3000
