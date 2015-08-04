@@ -5,7 +5,7 @@ angular.module 'companier'
   $stateProvider
   .state
       name: 'main'
-      url: '/'     
+      url: '/'
   .state
       name: 'category'
       url: '/category'
@@ -48,4 +48,25 @@ angular.module 'companier'
         'data@':
           controller: 'CompanyNewController'
           templateUrl: '/partials/company/new'
+  .state
+      name: 'catalog'
+      url: '/catalog'
+      views:
+        list:
+          templateUrl: '/partials/catalog/list'
+          controller: 'CatalogListController'
+  .state
+      name: 'catalog.view'
+      url: '/view/:id'
+      views:
+        'data@':
+          controller: 'CatalogViewController'
+          templateUrl: '/partials/catalog/view'
+  .state
+      name: 'catalog.new'
+      url: '/new'
+      views:
+        'data@':
+          controller: 'CatalogNewController'
+          templateUrl: '/partials/catalog/new'
 ]

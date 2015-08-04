@@ -32,7 +32,24 @@ company =
       required: true
   ]
   category: [String]
-
+catalog =
+  name:
+    type: String
+    required: true
+  company_id:
+    type: String
+    required: true
+  items: [
+    group_id: String
+    name: String
+    description: String
+    image: String
+  ]
+  groups: [
+    name: String
+    id: String
+  ]
 module.exports =
   Company: db.model 'company', new Schema company
   Category: db.model 'category', new Schema category
+  Catalog: db.model 'catalog', new Schema catalog

@@ -19,6 +19,7 @@ app.get '/partials/:folder/:view', (req, res)->
 models = require './models'
 app.use '/company', mongooseRouter models.Company
 app.use '/category', mongooseRouter models.Category
+app.use '/catalog', mongooseRouter models.Catalog
 app.use '/', require './images'
 
 

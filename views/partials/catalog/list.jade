@@ -1,0 +1,7 @@
+h3 Catalogs
+    a(ui-sref="catalog.new")
+        span.glyphicon.glyphicon-plus-sign
+hr
+.list-group
+    a.list-group-item(ng-repeat="catalog in catalogs" ui-sref="catalog.view({id:catalog._id})" ui-sref-active="active") {{catalog.name}}
+        i.glyphicon.glyphicon-chevron-right.pull-right

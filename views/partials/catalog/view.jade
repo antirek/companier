@@ -1,0 +1,78 @@
+h3 {{catalog.name}}
+hr
+form.form.form-horizontal(name="catalogAddForm")
+    .form-group
+        label.col-sm-3.control-label(for="name" ) Name
+        .col-sm-7
+            input.form-control(
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Input name"
+            ng-model="catalog.name"
+            required
+            )
+    .form-group
+        label.col-sm-3.control-label(for="company_id" ) Company
+        .col-sm-7
+            select.form-control(
+            id="company_id"
+            name="company_id"
+            type="text"
+            ng-model="catalog.company_id"
+            ng-options="item._id as item.name for item in companies "
+            required
+            )
+                option(value="") select company
+    h3 Groups
+    a.btn.btn-success(ng-click="addGroup()") Add
+    .row(ng-repeat="group in catalog.groups")
+        .col-sm-8
+            input.form-control(
+            ng-model="group.name"
+            type="text"
+            required
+            )
+        .col-sm-2
+            a.btn.btn-danger.glyphicon.glyphicon-remove(ng-click="removeGroup($index)")
+    h3 Items
+    a.btn.btn-success(ng-click="addItem()") Add
+    .row(ng-repeat="item in catalog.items")
+        .col-sm-2
+            input.form-control(
+            ng-model="item.name"
+            type="text"
+            placeholder="Input name"
+            required
+            )
+        .col-sm-2
+            select.form-control(
+            ng-model="item.group_id"
+            ng-options="group.id as group.name for group in catalog.groups"
+            required
+            )
+                option(value="") Select group
+        .col-sm-2
+            input.form-control(
+            ng-model="item.description"
+            placeholder="Input description"
+            type="text"
+            required
+            )
+        .col-sm-2
+            input.form-control(
+            ng-model="item.image"
+            type="text"
+            placeholder="Input image path"
+            required
+            )
+        .col-sm-2
+            a.btn.btn-danger.glyphicon.glyphicon-remove(ng-click="removeItem($index)")
+    hr
+    button.btn.btn-primary.col-sm-offset-3(
+    ng-click="save()"
+    ng-disabled="catalogAddForm.$invalid"
+    ) Save
+    button.btn.btn-danger(
+    ng-click="delete()"
+    ) Delete
