@@ -59,12 +59,12 @@ form.form.form-horizontal(name="catalogAddForm")
             type="text"
             required
             )
-        .col-sm-2
+        .col-sm-3
             input.form-control(
-            ng-model="item.image"
-            type="text"
-            placeholder="Input image path"
-            required
+            type="file"
+            uploader="images[item.image].uploader"
+            nv-file-select
+            filters="image"
             )
         .col-sm-2
             a.btn.btn-danger.glyphicon.glyphicon-remove(ng-click="removeItem($index)")
