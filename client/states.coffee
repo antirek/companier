@@ -69,4 +69,26 @@ angular.module 'companier'
         'data@':
           controller: 'CatalogNewController'
           templateUrl: '/partials/catalog/new'
+  .state
+      name: 'item'
+      url: '/item'
+      views:
+        list:
+          templateUrl: '/partials/item/list'
+          controller: 'ItemsListController'
+  .state
+      name: 'item.view'
+      url: '/view/:id'
+      views:
+        'data@':
+          controller: 'ItemsViewController'
+          templateUrl: '/partials/item/view'
+  .state
+      name: 'item.new'
+      url: '/new/:catalog_id'
+      views:
+        'data@':
+          controller: 'ItemsNewController'
+          templateUrl: '/partials/item/new'
+
 ]

@@ -40,16 +40,23 @@ catalog =
     type: String
     required: true
   items: [
-    group_id: String
-    name: String
-    description: String
-    image: String
+
   ]
   groups: [
     name: String
     id: String
   ]
+item =
+  catalog_id: String
+  group_id: String
+  name: String
+  description: String
+  images: [
+    hash: String
+    name: String
+  ]
 module.exports =
   Company: db.model 'company', new Schema company
   Category: db.model 'category', new Schema category
   Catalog: db.model 'catalog', new Schema catalog
+  Item: db.model 'item', new Schema item

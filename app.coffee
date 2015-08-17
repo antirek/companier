@@ -20,6 +20,7 @@ models = require './models'
 app.use '/company', mongooseRouter models.Company
 app.use '/category', mongooseRouter models.Category
 app.use '/catalog', mongooseRouter models.Catalog
+app.use '/item', mongooseRouter models.Item
 app.use '/', require './images'
 
 

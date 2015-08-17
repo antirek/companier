@@ -1,0 +1,15 @@
+h3 Items
+select.form-control(
+ng-model="selected_catalog"
+ng-options="catalog._id as catalog.name for catalog in catalogs"
+ng-change="updateItems()"
+)
+    option(value="") select catalog
+hr
+a.btn.btn-success(ui-sref="item.new({catalog_id:selected_catalog})" ng-show="selected_catalog")
+    | add
+    span.glyphicon.glyphicon-plus-sign
+hr
+.list-group
+    a.list-group-item(ng-repeat="item in items" ui-sref="item.view({id:item._id})" ui-sref-active="active") {{item.name}}
+        i.glyphicon.glyphicon-chevron-right.pull-right

@@ -1,0 +1,57 @@
+h3 Add new Item
+hr
+form.form.form-horizontal(name="itemAddForm")
+    .form-group
+        label.col-sm-3.control-label(for="name" ) Name
+        .col-sm-7
+            input.form-control(
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Input name"
+            ng-model="item.name"
+            required
+            )
+    .form-group
+        label.col-sm-3.control-label(for="group_id" ) Group
+        .col-sm-7
+            select.form-control(
+            id="group_id"
+            ng-model="item.group_id"
+            ng-options="group.id as group.name for group in catalog.groups"
+            required
+            )
+                option(value="") Select group
+    .form-group
+        label.col-sm-3.control-label(for="description" ) Description
+        .col-sm-7
+            input.form-control(
+            ng-model="item.description"
+            placeholder="Input description"
+            type="text"
+            required
+            )
+    h4 Images
+    a.btn.btn-success(
+    ng-click="addImage()"
+    ) add
+    .form-group(ng-repeat="image in item.images")
+        .col-sm-5
+            input.form-control(
+            type="text"
+            placeholder="Input name"
+            ng-model="image.name"
+            )
+        .col-sm-5
+            input.form-control(
+            type="file"
+            uploader="images[image.hash].uploader"
+            nv-file-select
+            filters="image"
+            )
+        .col-sm-2
+            a.btn.btn-danger.glyphicon.glyphicon-remove(ng-click="removeImage($index)")
+button.btn.btn-primary.col-sm-offset-3(
+ng-click="save()"
+ng-disabled="itemAddForm.$invalid"
+) Save
