@@ -35,39 +35,6 @@ form.form.form-horizontal(name="catalogAddForm")
             )
         .col-sm-2
             a.btn.btn-danger.glyphicon.glyphicon-remove(ng-click="removeGroup($index)")
-    h3 Items
-    a.btn.btn-success(ng-click="addItem()") Add
-    .row(ng-repeat="item in catalog.items")
-        .col-sm-2
-            input.form-control(
-            ng-model="item.name"
-            type="text"
-            placeholder="Input name"
-            required
-            )
-        .col-sm-2
-            select.form-control(
-            ng-model="item.group_id"
-            ng-options="group.id as group.name for group in catalog.groups"
-            required
-            )
-                option(value="") Select group
-        .col-sm-2
-            input.form-control(
-            ng-model="item.description"
-            placeholder="Input description"
-            type="text"
-            required
-            )
-        .col-sm-3
-            input.form-control(
-            type="file"
-            uploader="images[item.image].uploader"
-            nv-file-select
-            filters="image"
-            )
-        .col-sm-2
-            a.btn.btn-danger.glyphicon.glyphicon-remove(ng-click="removeItem($index)")
     hr
     button.btn.btn-primary.col-sm-offset-3(
     ng-click="save()"
